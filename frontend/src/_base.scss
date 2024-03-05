@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$padding: 1rem;
+$font-stack: 'Poppins', sans-serif;
+$font-size: 16px;
+$font-size-input: 14px;
+$primary-color: #333;
+$secondary-color: #888;
+$bg-color: #9feedb;
+$bg-color-darker: #79c7b5;
+$soft-white: #fbfbfb;
+a {
+    text-decoration: none;
+    color: $primary-color;
+}
+
+body {
+    font-family: $font-stack;
+    font-size: $font-size;
+    background-color: $soft-white;
+}
+
+button,
+input,
+textarea {
+    font-family: $font-stack;
+    font-size: $font-size-input;
+}
+
+.truncate {
+    text-overflow: ellipsis;
+
+    /* Needed to make it work */
+    overflow: hidden;
+    display: -webkit-box;
+}

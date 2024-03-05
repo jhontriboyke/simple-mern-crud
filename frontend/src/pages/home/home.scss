@@ -1,0 +1,93 @@
+@use '../../base';
+
+.flex {
+    display: flex;
+}
+
+.homepage {
+    flex: 3;
+    // background-color: pink;
+}
+
+.books-collection {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+
+    .card {
+        border-radius: 0.25rem;
+        box-shadow: 0 0 4px rgba($color: #424242, $alpha: 0.15);
+
+        .card-header {
+            height: 300px;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .book-desc {
+            .author {
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 0.05rem;
+                color: base.$secondary-color;
+                margin-bottom: 8px;
+            }
+
+            .title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: base.$primary-color;
+            }
+
+            .desc {
+                margin-top: 4px;
+                color: base.$primary-color;
+                font-size: 13px;
+                font-weight: 400;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+
+            .book-controls {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+            .price {
+                color: base.$primary-color;
+                font-weight: 400;
+            }
+
+            .book-btn {
+                all: unset;
+                cursor: pointer;
+                padding: 2px 12px;
+                border-radius: 4px;
+                background-color: base.$bg-color;
+                color: white;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background-color: base.$bg-color-darker;
+                }
+
+                &:active {
+                    transform: scale(0.97);
+                    filter: brightness(0.95);
+                }
+            }
+        }
+    }
+}

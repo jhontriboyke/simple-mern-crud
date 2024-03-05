@@ -1,0 +1,21 @@
+@use '../../base';
+.main-nav {
+    box-shadow: 0 0 4px rgba($color: base.$primary-color, $alpha: 0.15);
+    .nav-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .brand-wrapper span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: base.$bg-color;
+        }
+
+        .nav-controls-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    }
+}
