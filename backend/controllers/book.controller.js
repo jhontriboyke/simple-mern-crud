@@ -27,10 +27,10 @@ export const getBook = async (req, res) => {
 
 // POST a book
 export const postBook = async (req, res) => {
-    const { title, year, author, book_desc } = req.body
+    const { title, year, author, book_desc, cover, price } = req.body
 
     try {
-        const book = await Book.create({ title, year, author, book_desc })
+        const book = await Book.create({ title, year, author, book_desc, cover, price })
         res.status(200).json(book)
     } catch (error) {
         res.status(400).json({ error: error.message })

@@ -2,6 +2,7 @@
 
 .flex {
     display: flex;
+    gap: 5rem;
 }
 
 .homepage {
@@ -12,7 +13,8 @@
 .books-collection {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
 
     .card {
         border-radius: 0.25rem;
@@ -55,6 +57,7 @@
                 font-weight: 400;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
+                height: 60px;
             }
 
             .book-controls {

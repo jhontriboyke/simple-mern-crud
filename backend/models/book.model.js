@@ -3,24 +3,29 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-    cover: {
-        type: String,
-        required: true
-    },
     title: {
         type: String,
         required: true
     },
     year: {
-        type: String,
+        type: Number,
         required: true,
     },
+
     author: {
         type: String,
         required: true,
     },
     book_desc: {
         type: String,
+    },
+    cover: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
     },
 }, {
     timestamps: true
