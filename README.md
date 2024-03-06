@@ -4,7 +4,8 @@ A simple side project to learn MERN stack where able to create, read, update, an
 
 This project fully purposed to learn MERN stack, specially to learn and understand the basics.
 
-![](https://id.pinterest.com/pin/608830443403944158/)
+![](./screenshots/screenshot_1.png)
+![](./screenshots/screenshot_2.png)
 
 ## Tech Stack
 
