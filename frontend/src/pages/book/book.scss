@@ -1,0 +1,115 @@
+@use '../../base';
+.loading-wrapper {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+
+    .loader {
+        width: 15px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: l5 1s infinite linear alternate;
+    }
+    @keyframes l5 {
+        0% {
+            box-shadow: 20px 0 #000, -20px 0 #0002;
+            background: #000;
+        }
+        33% {
+            box-shadow: 20px 0 #000, -20px 0 #0002;
+            background: #0002;
+        }
+        66% {
+            box-shadow: 20px 0 #0002, -20px 0 #000;
+            background: #0002;
+        }
+        100% {
+            box-shadow: 20px 0 #0002, -20px 0 #000;
+            background: #000;
+        }
+    }
+}
+
+.back-btn {
+    margin-bottom: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.book-container {
+    display: flex;
+    gap: 4rem;
+
+    & > * {
+    }
+
+    .cover-container {
+        width: 400px;
+        height: 600px;
+        position: sticky;
+        top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .cover-wrapper {
+            width: 100%;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .info-wrapper {
+            display: grid;
+            place-items: center;
+
+            button {
+                background-color: base.$bg-color-darker;
+                color: white;
+                border: none;
+                padding: 4px 16px;
+                margin: 0 auto;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .detail-container {
+        width: 100%;
+
+        .book-detail-wrapper {
+            h1 {
+                font-size: 3.5rem;
+                font-weight: 300;
+                margin-top: -20px;
+                color: base.$primary-color;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: base.$secondary-color;
+            }
+
+            p {
+                line-height: 1.75;
+                font-size: 15px;
+                margin-top: 1.2rem;
+                color: base.$primary-color;
+            }
+
+            span {
+                margin-top: 2rem;
+                display: block;
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+    }
+}

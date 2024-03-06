@@ -13,7 +13,7 @@
 .books-collection {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
 
     .card {
@@ -37,9 +37,9 @@
 
         .book-desc {
             .author {
-                font-size: 12px;
+                font-size: 11px;
                 font-weight: 400;
-                letter-spacing: 0.05rem;
+                // letter-spacing: 0.05rem;
                 color: base.$secondary-color;
                 margin-bottom: 8px;
             }
