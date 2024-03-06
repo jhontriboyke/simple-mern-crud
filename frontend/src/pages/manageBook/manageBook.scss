@@ -1,0 +1,15 @@
+.manage-book-container {
+}
+
+.manage-book-wrapper {
+    display: flex;
+    gap: 2rem;
+    height: calc(100dvh - 100px);
+
+    .book-list-container {
+        flex: 3;
+        padding: 1rem;
+        // background-color: greenyellow;
+        overflow-y: auto;
+    }
+}

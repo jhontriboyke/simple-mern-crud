@@ -55,8 +55,6 @@ const Form = () => {
         });
     };
 
-    console.log(book);
-
     return (
         <section onSubmit={handleSubmit} className="form">
             <form>

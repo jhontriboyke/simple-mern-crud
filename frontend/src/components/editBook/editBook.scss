@@ -1,0 +1,78 @@
+@use '../../base';
+
+.dialog-edit {
+    color: base.$bg-color-darker;
+}
+
+.edit-form {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    padding: 1rem;
+
+    .cover-wrapper {
+        min-width: 350px;
+        min-height: 400px;
+        display: grid;
+        place-items: center;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        textarea {
+            margin-top: 8px;
+            padding: 4px 10px;
+            width: 100%;
+        }
+    }
+
+    .detail-wrapper {
+        padding: 4px 16px;
+        color: base.$secondary-color;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .form-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+
+            label {
+                font-size: 14px;
+                color: base.$secondary-color;
+            }
+
+            input,
+            textarea {
+                padding: 4px 8px;
+                border: 1px solid base.$secondary-color;
+                border-radius: 4px;
+            }
+        }
+
+        .form-controls {
+            // background-color: teal;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            button {
+                padding: 4px 10px;
+                width: 100px;
+            }
+        }
+    }
+}

@@ -21,16 +21,14 @@ const Home = () => {
         fetchBooks();
     }, []);
 
-    console.log(state);
-
     return (
         <div className="container flex">
             <section className="homepage">
                 <h1>Temukan buku favorit anda di sini</h1>
                 <article className="books-collection">
                     {state?.map((book) => (
-                        <Link to={'/book/' + book._id}>
-                            <section key={book._id} className="card">
+                        <Link key={book._id} to={'/book/' + book._id}>
+                            <section className="card">
                                 <div className="card-header">
                                     <img
                                         className="cover"
@@ -40,10 +38,12 @@ const Home = () => {
                                 </div>
                                 <div className="card-content book-desc">
                                     <h3 className="author">{book.author}</h3>
-                                    <h2 className="title">{book.title}</h2>
-                                    <p className="desc truncate">
-                                        {book.book_desc}
-                                    </p>
+                                    <div className="book-info">
+                                        <h2 className="title">{book.title}</h2>
+                                        <p className="desc truncate">
+                                            {book.book_desc}
+                                        </p>
+                                    </div>
                                     <div className="book-controls">
                                         <span className="price">
                                             Rp.{' '}
