@@ -39,3 +39,37 @@ textarea {
     overflow: hidden;
     display: -webkit-box;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .submit-btn {
+        margin-top: 1.5rem;
+    }
+
+    .form-stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+
+        label {
+            font-size: 14px;
+            color: $secondary-color;
+        }
+
+        input,
+        textarea {
+            padding: 4px 8px;
+            border: 1px solid $secondary-color;
+            border-radius: 4px;
+        }
+    }
+}

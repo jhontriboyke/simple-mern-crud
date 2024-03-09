@@ -4,9 +4,11 @@ import axios from 'axios';
 import { BookContext } from '../../context/bookContext';
 import useDialog from '../../hooks/useDialog';
 import Dialog from '../dialog/Dialog';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const EditBook = (props) => {
     const book = props;
+    const { user } = useAuthContext();
     const [newBook, setNewBook] = useState({
         author: book.author,
         book_desc: book.book_desc,
@@ -30,7 +32,13 @@ const EditBook = (props) => {
         try {
             const { data } = await axios.patch(
                 'http://localhost:4400/api/books/' + id,
-                newBook
+                newBook,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
             );
             dispatch({
                 type: 'UPDATE_BOOK',

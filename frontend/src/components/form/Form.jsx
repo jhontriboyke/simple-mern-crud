@@ -2,9 +2,11 @@ import { useContext, useState } from 'react';
 import './form.scss';
 import { BookContext } from '../../context/bookContext';
 import axios from 'axios';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const Form = () => {
     const { state, dispatch } = useContext(BookContext);
+    const { user } = useAuthContext();
     const [book, setBook] = useState({
         cover: '',
         title: '',
@@ -38,26 +40,33 @@ const Form = () => {
         try {
             const { data } = await axios.post(
                 'http://localhost:4400/api/books/',
-                book
+                book,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
             );
             dispatch({ type: 'ADD_BOOK', payload: data });
+            setBook({
+                cover: '',
+                title: '',
+                year: '',
+                price: '',
+                author: '',
+                book_desc: '',
+            });
         } catch (error) {
             console.log(error);
         }
-
-        setBook({
-            cover: '',
-            title: '',
-            year: '',
-            price: '',
-            author: '',
-            book_desc: '',
-        });
     };
+
+    console.log(user.token);
 
     return (
         <section onSubmit={handleSubmit} className="form">
-            <form>
+            <form autoComplete={false}>
                 <div className="form-field">
                     <label htmlFor="cover">Book cover</label>
                     <input

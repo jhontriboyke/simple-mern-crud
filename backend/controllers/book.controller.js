@@ -3,7 +3,10 @@ import Book from "../models/book.model.js";
 
 // GET all books
 export const getAllBooks = async (req, res) => {
-    const books = await Book.find({}).sort({ createdAt: -1 })
+
+    const user_id = req.user._id
+
+    const books = await Book.find({ user_id }).sort({ createdAt: -1 })
 
     res.status(200).json(books)
 }
@@ -30,7 +33,8 @@ export const postBook = async (req, res) => {
     const { title, year, author, book_desc, cover, price } = req.body
 
     try {
-        const book = await Book.create({ title, year, author, book_desc, cover, price })
+        const user_id = req.user._id
+        const book = await Book.create({ title, year, author, book_desc, cover, price, user_id })
         res.status(200).json(book)
     } catch (error) {
         res.status(400).json({ error: error.message })

@@ -22,6 +22,9 @@ const bookReducer = (state, action) => {
                 }
             });
         }
+        case 'CLEAR_STATE': {
+            return [];
+        }
         default:
             break;
     }

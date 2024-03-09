@@ -17,7 +17,39 @@
             align-items: center;
             gap: 0.5rem;
 
-            a {
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            .user-info {
+                font-size: 12px;
+            }
+
+            .login-btn {
+                background-color: base.$bg-color-darker;
+                color: white;
+                padding: 4px 12px;
+                border-radius: 4px;
+            }
+
+            .logout-btn {
+                margin-left: auto;
+                cursor: pointer;
+                border: none;
+                background-color: base.$bg-color-darker;
+                color: white;
+                padding: 4px 12px;
+                border-radius: 4px;
+            }
+
+            .manage-link {
                 font-weight: bold;
 
                 &:hover {

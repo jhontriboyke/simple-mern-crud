@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import cors from "cors"
 import { router as bookRoutes } from "./routes/book.routes.js"
+import { router as userRoutes } from "./routes/user.routes.js"
 
 // initialize backend
 dotenv.config()
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 
 // define routes
 app.use("/api/books", bookRoutes)
+app.use("/api/user", userRoutes)
 
 // initialize db - mongoDB
 const db = mongoose

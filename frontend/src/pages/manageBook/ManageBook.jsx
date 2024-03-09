@@ -4,14 +4,22 @@ import './manageBook.scss';
 import { BookContext } from '../../context/bookContext';
 import axios from 'axios';
 import BookItem from '../../components/bookItem/BookItem';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const ManageBook = () => {
     const { state, dispatch } = useContext(BookContext);
     const books = [...state];
+    const { user } = useAuthContext();
+
     const fetchBooks = async () => {
         try {
             const { data } = await axios.get(
-                'http://localhost:4400/api/books/'
+                'http://localhost:4400/api/books/',
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
             );
             dispatch({ type: 'GET_BOOKS', payload: data });
         } catch (error) {
@@ -21,7 +29,7 @@ const ManageBook = () => {
 
     useEffect(() => {
         fetchBooks();
-    }, [state]);
+    }, [books]);
 
     return (
         <section className="container manage-book-container">

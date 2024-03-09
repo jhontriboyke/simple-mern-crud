@@ -2,13 +2,20 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './book.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import useAuthContext from '../../hooks/useAuthContext';
 const Book = () => {
     const [book, setBook] = useState();
     const params = useParams();
+    const { user } = useAuthContext();
     const getBook = async (id) => {
         try {
             const { data } = await axios.get(
-                'http://localhost:4400/api/books/' + id
+                'http://localhost:4400/api/books/' + id,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
             );
             setBook(data);
         } catch (error) {

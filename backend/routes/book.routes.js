@@ -1,7 +1,11 @@
 import express from "express"
 import { deleteBook, getAllBooks, getBook, postBook, updateBook } from "../controllers/book.controller.js"
+import requireAuth from "../middleware/requireAuth.js"
 
 export const router = express.Router()
+
+// Reuire auth
+router.use(requireAuth)
 
 // GET all books
 router.get("/", getAllBooks)

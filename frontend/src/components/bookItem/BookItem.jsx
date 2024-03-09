@@ -5,16 +5,21 @@ import axios from 'axios';
 import useDialog from '../../hooks/useDialog';
 import Dialog from '../dialog/Dialog';
 import EditBook from '../editBook/EditBook';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const BookItem = (props) => {
     const book = props;
     const { dispatch } = useContext(BookContext);
     const { openDialog, toggleDialog } = useDialog();
     const [isEdit, setIsEdit] = useState(false);
+    const { user } = useAuthContext();
 
     const handleDelete = async (id) => {
+        const headers = { Authorization: `Bearer ${user.token}` };
         try {
-            await axios.delete('http://localhost:4400/api/books/' + id);
+            await axios.delete('http://localhost:4400/api/books/' + id, {
+                headers: headers,
+            });
 
             dispatch({ type: 'DELETE_BOOK', payload: id });
             toggleDialog();
