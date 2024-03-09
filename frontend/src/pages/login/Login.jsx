@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login, error, isLoading } = useLogin();
+    const { login, error, isLoading, success } = useLogin();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,10 +44,11 @@ const Login = () => {
                         type="submit"
                         className="submit-btn"
                     >
-                        Sign Up
+                        Login
                     </button>
                 </form>
-                {error && <p>{error}</p>}
+                {success && <p className="success-msg">Login successfully</p>}
+                {error && <p className="error-msg">{error}</p>}
                 <div className="signup-link">
                     <Link to={'/signup'}>Daftar</Link>
                 </div>

@@ -73,3 +73,25 @@ form {
         }
     }
 }
+
+.success-msg {
+    background-color: rgba(125, 238, 168, 0.486);
+    color: rgb(1, 240, 109);
+    border: 1px solid rgb(1, 240, 109);
+    font-weight: 400;
+    padding: 4px 12px;
+    margin-top: 2rem;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.error-msg {
+    background-color: rgba(238, 142, 125, 0.486);
+    color: rgb(240, 37, 1);
+    border: 1px solid rgb(240, 37, 1);
+    font-weight: 400;
+    padding: 4px 12px;
+    margin-top: 2rem;
+    font-size: 14px;
+    border-radius: 4px;
+}
